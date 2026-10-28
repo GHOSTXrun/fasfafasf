@@ -3,7 +3,7 @@
   "chain": "solana:mainnet",
   "network": "Solana",
   "nativeSymbol": "SOL",
-  "rpcUrl": "https://api.mainnet.solana.com",
+  "rpcUrl": "https://api.mainnet-beta.solana.com",
   "explorerUrl": "https://explorer.solana.com",
   "deploymentSlot": null,
   "programId": null,

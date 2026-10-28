@@ -7,7 +7,7 @@ export const SOLANA_EXPLORER = 'https://explorer.solana.com'
 
 export const solanaClient = createClient()
   .use(walletSigner({ chain: SOLANA_CHAIN }))
-  .use(solanaMainnetRpc({ rpcUrl: 'https://api.mainnet.solana.com' }))
+  .use(solanaMainnetRpc({ rpcUrl: import.meta.env.VITE_SOLANA_RPC_URL || 'https://api.mainnet-beta.solana.com' }))
 
 export function solanaExplorerAddress(address) {
   return `${SOLANA_EXPLORER}/address/${address}`

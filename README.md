@@ -4,6 +4,27 @@ Source: https://github.com/GHOSTXrun/fasfafasf
 
 VORNUQ is a new brand and protocol development project. No official token mint or social account has been announced here.
 
+## Current release
+
+- Website, roadmap, architecture documentation and pre-release information pages.
+- Backpack and Phantom selection through Solana Wallet Standard, with installation guidance, connection errors, disconnect and wallet change events.
+- Public mainnet SOL balance and local receiver/recovery tools.
+- Shield, private transfer, exit and note scanning are unavailable; no Solana program is deployed by this repository.
+
+For feedback, use https://github.com/GHOSTXrun/fasfafasf/issues. Never attach wallet secrets or recovery records. A dedicated private security contact has not yet been published.
+
+Copy `.env.example` to `.env.local` to override the public mainnet RPC endpoint. `VITE_` settings are public browser configuration.
+
+Wallet integration smoke test (uses simulated Wallet Standard providers, not real funds):
+
+```bash
+# Start npm run dev in another terminal.
+# Set BROWSER_PATH to a local Chromium/Chrome/Edge executable on your OS.
+node scripts/verify-wallets.mjs
+```
+
+The test covers both wallet choices, unavailable wallets, rejected authorization, public balance, disconnection, revoked accounts and mobile layout. Real wallet extension authorization must be verified interactively by the wallet owner.
+
 VORNUQ is a non-custodial shielded-account protocol designed for Solana. The browser connects through Wallet Standard, reads SOL state from mainnet-beta, creates one-time private receiving addresses locally, and consumes a single reviewed deployment manifest.
 
 ## Protocol
