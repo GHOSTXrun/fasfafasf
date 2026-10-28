@@ -29,8 +29,8 @@ const faqs = [
 function SolArtwork({ variant = 'orbit' }) {
   return <div className={`sol-art sol-art-${variant}`} aria-hidden="true">
     <span className="sol-orbit sol-orbit-one" /><span className="sol-orbit sol-orbit-two" />
-    <span className="sol-coin sol-coin-main"><img src={`${BASE}robinhood-mark.svg`} alt="" /></span>
-    <span className="sol-coin sol-coin-small"><img src={`${BASE}robinhood-mark.svg`} alt="" /></span>
+    <span className="sol-coin sol-coin-main"><img src={`${BASE}eth-mark.svg`} alt="" /></span>
+    <span className="sol-coin sol-coin-small"><img src={`${BASE}eth-mark.svg`} alt="" /></span>
     <span className="sol-art-stamp"><ShieldCheck /></span>
     <Star className="sol-art-star" /><span className="sol-art-dot" />
     <span className="sol-art-label">ETH / PRIVATE BY DESIGN</span>
@@ -93,7 +93,7 @@ function ProductCard({ openApp }) {
           <button onClick={openApp}><span><ArrowUpRight /></span>Exit</button>
         </div>
         <div className="preview-rule" />
-        <div className="preview-row"><span className="asset-icon solana-chain"><img src={`${BASE}robinhood-mark.svg`} alt="" /></span><div><b>ETH on Robinhood Chain</b><small>ETH GAS · ROBINHOOD CHAIN</small></div></div>
+        <div className="preview-row"><span className="asset-icon solana-chain"><img src={`${BASE}eth-mark.svg`} alt="" /></span><div><b>ETH on Robinhood Chain</b><small>ETH GAS · ROBINHOOD CHAIN</small></div></div>
         <div className="preview-row"><span className="asset-icon proof"><ShieldCheck /></span><div><b>Private transfers</b><small>ZERO-KNOWLEDGE AUTHORIZATION</small></div></div>
       </div>
       <div className="privacy-seal" aria-label="Spending keys stay on your device"><KeyRound /><b>Keys stay<br />local</b></div>
@@ -105,7 +105,7 @@ function Hero({ openApp }) {
   return (
     <section className="hero" id="top">
       <Header openApp={openApp} />
-      <img className="hero-art" src={`${BASE}vornuq-logo.png`} alt="" />
+      <img className="hero-art" src={`${BASE}eth-mark.svg`} alt="" />
       <div className="hero-copy">
         <span className="hand-label">✦ VORNUQ · privacy belongs to you</span>
         <h1>Your assets.<br /><em>Your private world.</em></h1>
@@ -210,7 +210,7 @@ function TokenSection() {
 function DeveloperSection() {
   return (
     <section className="developer-section" id="developers">
-      <img src={`${BASE}vornuq-logo.png`} alt="" />
+      <img src={`${BASE}eth-mark.svg`} alt="" />
       <div className="dev-content">
         <span className="eyebrow green-text">BUILDING IN PUBLIC</span>
         <h2>Privacy needs<br /><em>more builders.</em></h2>

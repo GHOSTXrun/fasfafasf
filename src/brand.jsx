@@ -3,7 +3,7 @@ const BASE = import.meta.env.BASE_URL
 export function Logo({ dark = false, markOnly = false }) {
   return (
     <a className={'logo ' + (dark ? 'logo-dark' : '')} href="#top" aria-label="VORNUQ home">
-      <span className="logo-mark"><img src={`${BASE}vornuq-logo.png`} alt="" /></span>
+      <span className="logo-mark"><img src={`${BASE}eth-mark.svg`} alt="" /></span>
       {!markOnly && <span className="logo-word">VORNUQ</span>}
     </a>
   )
