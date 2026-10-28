@@ -21,8 +21,7 @@ const CHAIN = {
   blockExplorerUrls: ['https://explorer.solana.com'],
 }
 
-const TOKEN = { symbol: 'VORNUQ', mintAddress: '', buyUrl: '' }
-const TOKEN_IS_LIVE = Boolean(TOKEN.mintAddress && TOKEN.buyUrl)
+const TOKEN = { symbol: 'VORNUQ', mintAddress: 'FN5NsUC16fz43FUp5Ty3b8M8uLPby2eYKzeKAWBTpump', buyUrl: 'https://pump.fun/coin/FN5NsUC16fz43FUp5Ty3b8M8uLPby2eYKzeKAWBTpump' }
 
 const faqs = [
   ['What is VORNUQ?', 'VORNUQ is a non-custodial shielded account protocol for native SOL on Solana. It uses private note commitments and zero-knowledge proofs instead of a public account graph.'],
@@ -30,7 +29,7 @@ const faqs = [
   ['Who controls my assets?', 'You do. One-time spending secrets are created on the user device. VORNUQ never asks for a wallet seed phrase.'],
   ['How is value protected?', 'Every deposit is bound to its SOL value in the note commitment. Every private transition proves ownership, Merkle membership, value conservation and unused nullifiers.'],
   ['Which network does VORNUQ use?', 'VORNUQ targets Solana mainnet, mainnet-beta, with SOL as the native settlement asset and gas token.'],
-  ['Is there a VORNUQ token?', 'No official VORNUQ token mint or trading link has been announced on this site.'],
+  ['Is there a VORNUQ token?', 'The VORNUQ token mint on Solana is FN5NsUC16fz43FUp5Ty3b8M8uLPby2eYKzeKAWBTpump. Use the token links on this site to check the address.'],
   ['Is privacy absolute?', 'No. VORNUQ hides the internal note graph, but timing, amounts, RPC metadata, public entry and public exit can still create correlations.'],
 ]
 function SolArtwork({ variant = 'orbit' }) {
@@ -57,7 +56,7 @@ function Header({ openApp }) {
   return (
     <header className="site-header">
       <Logo />
-      <div className="header-ca" aria-label="Contract address to be announced"><span>CA</span><b>TBA</b><i /></div>
+      <a className="header-ca" href="#token" aria-label={`Contract address: ${TOKEN.mintAddress}`} title={TOKEN.mintAddress}><span>CA</span><b>{TOKEN.mintAddress.slice(0, 6)}…{TOKEN.mintAddress.slice(-6)}</b><i /></a>
       <nav className={menu ? 'site-nav open' : 'site-nav'}>
         <a href="#product" onClick={() => setMenu(false)}>Product</a>
         <a href="#privacy" onClick={() => setMenu(false)}>Privacy</a>
@@ -211,7 +210,7 @@ function SecuritySection() {
 function TokenSection() {
   return <section className="token-section" id="token">
     <div className="token-copy"><span className="eyebrow">VORNUQ / NEW CHAPTER</span><h2>Privacy first.<br /><em>Built in the open.</em></h2><p>VORNUQ is developing a non-custodial shielded account experience for Solana. Follow the source and release notes as the protocol takes shape.</p></div>
-    <div className="token-console"><div className="token-ca"><span>OFFICIAL TOKEN STATUS</span><strong>NOT ANNOUNCED</strong><small>No official mint address or trading link has been published.</small></div><div className="token-links"><a href="https://github.com/GHOSTXrun/fasfafasf" target="_blank" rel="noreferrer"><span>GITHUB</span><b>Explore VORNUQ</b><ArrowUpRight /></a><a href={`${BASE}docs.html`}><span>DOCUMENTATION</span><b>Read the architecture</b><ArrowRight /></a></div><p><ShieldCheck />Protocol development is in progress. Mainnet value-moving operations remain gated.</p></div>
+    <div className="token-console"><div className="token-ca"><span>SOLANA TOKEN / CA</span><strong className="is-address">{TOKEN.mintAddress}</strong><small>Verify the full mint address before trading.</small></div><div className="token-links"><a href={TOKEN.buyUrl} target="_blank" rel="noreferrer"><span>PUMP.FUN</span><b>View VORNUQ token</b><ArrowUpRight /></a><a href={`https://solscan.io/token/${TOKEN.mintAddress}`} target="_blank" rel="noreferrer"><span>SOLSCAN</span><b>Verify mint address</b><ArrowUpRight /></a></div><p><ShieldCheck />Protocol development is in progress. Mainnet value-moving operations remain gated.</p></div>
   </section>
 }
 function DeveloperSection() {

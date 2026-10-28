@@ -2,7 +2,7 @@
 
 Source: https://github.com/GHOSTXrun/fasfafasf
 
-VORNUQ is a new brand and protocol development project. No official token mint or social account has been announced here.
+VORNUQ is a new brand and protocol development project. The published Solana token mint is `FN5NsUC16fz43FUp5Ty3b8M8uLPby2eYKzeKAWBTpump`. No official social account has been announced here.
 
 ## Current release
 

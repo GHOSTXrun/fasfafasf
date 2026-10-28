@@ -29,7 +29,7 @@ const information = {
     ['Development preview', 'VORNUQ is a software development project. The current release offers a website, documentation, wallet connection and local recovery tools. Shielded deposits, private transfers, exits and private-note scanning are not available.'],
     ['Wallet permissions', 'A wallet connection shares a public account and does not itself move assets. Read every request in your wallet. This release should not ask you to approve a SOL deposit or a private transaction.'],
     ['Recovery responsibility', 'Local recovery records contain sensitive material. Losing a record can prevent future recovery; sharing it may grant another person spending authority. Do not upload these files to support channels.'],
-    ['No token announcement', 'No official VORNUQ mint address or trading pair has been published on this website. No financial return or token utility is promised.'],
+    ['Token address', 'The published VORNUQ token mint on Solana is FN5NsUC16fz43FUp5Ty3b8M8uLPby2eYKzeKAWBTpump. Verify the complete address before using external trading services. No financial return or token utility is promised.'],
     ['Release requirements', 'Production use depends on a completed Solana program, verified proving artifacts, end-to-end testing, independent review and published deployment records. Formal service terms and operator information will be required before production launch.'],
   ]},
 }
