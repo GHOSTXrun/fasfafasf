@@ -1,0 +1,41 @@
+{
+  "name": "murven-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "circuits:compile": "node scripts/compile-circuits.mjs",
+    "circuits:test": "node --test test/circuits/*.test.mjs",
+    "sdk:test": "node --test test/sdk/*.test.mjs",
+    "solana:test": "node --test test/solana/*.test.mjs",
+    "protocol:test": "npm run circuits:compile && npm run sdk:test && npm run solana:test && npm run circuits:test",
+    "protocol:build": "npm run circuits:compile && npm run build"
+  },
+  "dependencies": {
+    "@noble/curves": "^1.2.0",
+    "@solana/kit": "^8.3.0",
+    "@solana/kit-plugin-rpc": "^0.19.0",
+    "@solana/kit-plugin-wallet": "^0.20.0",
+    "@solana/react": "^8.3.0",
+    "@vitejs/plugin-react": "latest",
+    "lucide-react": "latest",
+    "poseidon-lite": "^0.3.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "snarkjs": "^0.7.6",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "circom2": "^0.2.23",
+    "circomlib": "^2.0.5",
+    "circomlibjs": "^0.1.7",
+    "playwright-core": "^1.63.0",
+    "sharp": "^0.35.4"
+  },
+  "overrides": {
+    "underscore": "1.13.8"
+  }
+}
