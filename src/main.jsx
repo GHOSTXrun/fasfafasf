@@ -8,38 +8,32 @@ import {
 import './styles.css'
 import { Logo, Star } from './brand.jsx'
 import { WalletBoundary } from './startup-boundary.jsx'
-const WalletApplication = lazy(() => import('./wallet-app.jsx'))
+const WalletApplication = lazy(() => import('./robinhood-preview.jsx'))
 import { Roadmap, ContactSection, InformationPage } from './site-content.jsx'
 
 const BASE = import.meta.env.BASE_URL
 
-const CHAIN = {
-  chain: 'solana:mainnet',
-  chainName: 'Solana',
-  rpcUrl: 'https://api.mainnet-beta.solana.com',
-  nativeCurrency: { name: 'Solana', symbol: 'SOL', decimals: 9 },
-  blockExplorerUrls: ['https://explorer.solana.com'],
-}
+const CHAIN = { blockExplorerUrls: ['https://robinhoodchain.blockscout.com'] }
 
-const TOKEN = { symbol: 'VORNUQ', mintAddress: 'FN5NsUC16fz43FUp5Ty3b8M8uLPby2eYKzeKAWBTpump', buyUrl: 'https://pump.fun/coin/FN5NsUC16fz43FUp5Ty3b8M8uLPby2eYKzeKAWBTpump' }
+const TOKEN = { symbol: 'VORNUQ', mintAddress: '', buyUrl: '' }
 
 const faqs = [
-  ['What is VORNUQ?', 'VORNUQ is a non-custodial shielded account protocol for native SOL on Solana. It uses private note commitments and zero-knowledge proofs instead of a public account graph.'],
+  ['What is VORNUQ?', 'VORNUQ is a non-custodial shielded account protocol being adapted for ETH on Robinhood Chain. It uses private note commitments and zero-knowledge proofs instead of a public account graph.'],
   ['Is VORNUQ a mixer?', 'No. VORNUQ is a persistent shielded account: users hold private notes and authorize transfers with zero-knowledge proofs rather than depositing into a fixed-denomination mixing round.'],
   ['Who controls my assets?', 'You do. One-time spending secrets are created on the user device. VORNUQ never asks for a wallet seed phrase.'],
-  ['How is value protected?', 'Every deposit is bound to its SOL value in the note commitment. Every private transition proves ownership, Merkle membership, value conservation and unused nullifiers.'],
-  ['Which network does VORNUQ use?', 'VORNUQ targets Solana mainnet, mainnet-beta, with SOL as the native settlement asset and gas token.'],
-  ['Is there a VORNUQ token?', 'The VORNUQ token mint on Solana is FN5NsUC16fz43FUp5Ty3b8M8uLPby2eYKzeKAWBTpump. Use the token links on this site to check the address.'],
+  ['How is value protected?', 'Every deposit is bound to its ETH value in the note commitment. Every private transition proves ownership, Merkle membership, value conservation and unused nullifiers.'],
+  ['Which network does VORNUQ use?', 'VORNUQ targets Robinhood Chain mainnet, mainnet, with ETH as the native settlement asset and gas token.'],
+  ['Is there a VORNUQ token?', 'A Robinhood Chain contract address has not been published. Check this site for the verified address.'],
   ['Is privacy absolute?', 'No. VORNUQ hides the internal note graph, but timing, amounts, RPC metadata, public entry and public exit can still create correlations.'],
 ]
 function SolArtwork({ variant = 'orbit' }) {
   return <div className={`sol-art sol-art-${variant}`} aria-hidden="true">
     <span className="sol-orbit sol-orbit-one" /><span className="sol-orbit sol-orbit-two" />
-    <span className="sol-coin sol-coin-main"><img src={`${BASE}solana-mark.svg`} alt="" /></span>
-    <span className="sol-coin sol-coin-small"><img src={`${BASE}solana-mark.svg`} alt="" /></span>
+    <span className="sol-coin sol-coin-main"><img src={`${BASE}robinhood-mark.svg`} alt="" /></span>
+    <span className="sol-coin sol-coin-small"><img src={`${BASE}robinhood-mark.svg`} alt="" /></span>
     <span className="sol-art-stamp"><ShieldCheck /></span>
     <Star className="sol-art-star" /><span className="sol-art-dot" />
-    <span className="sol-art-label">SOL / PRIVATE BY DESIGN</span>
+    <span className="sol-art-label">ETH / PRIVATE BY DESIGN</span>
   </div>
 }
 
@@ -56,7 +50,7 @@ function Header({ openApp }) {
   return (
     <header className="site-header">
       <Logo />
-      <a className="header-ca" href="#token" aria-label={`Contract address: ${TOKEN.mintAddress}`} title={TOKEN.mintAddress}><span>CA</span><b>{TOKEN.mintAddress.slice(0, 6)}…{TOKEN.mintAddress.slice(-6)}</b><i /></a>
+      <a className="header-ca" href="#token" aria-label="Contract address to be announced"><span>CA</span><b>TBA</b><i /></a>
       <nav className={menu ? 'site-nav open' : 'site-nav'}>
         <a href="#product" onClick={() => setMenu(false)}>Product</a>
         <a href="#privacy" onClick={() => setMenu(false)}>Privacy</a>
@@ -67,7 +61,7 @@ function Header({ openApp }) {
         <a href={`${BASE}docs.html`}>Docs</a>
       </nav>
       <div className="header-end">
-        <a className="chain-pill" href={CHAIN.blockExplorerUrls[0]} target="_blank" rel="noreferrer"><i />Solana</a>
+        <a className="chain-pill" href={CHAIN.blockExplorerUrls[0]} target="_blank" rel="noreferrer"><i />Robinhood Chain</a>
         <a className="header-github" href={`${BASE}docs.html#repository`} aria-label="Browse protocol source"><GithubBrand /></a>
         <button className="primary-btn light" onClick={openApp}>Launch app <ArrowRight /></button>
         <button className="menu-btn" onClick={() => setMenu(!menu)} aria-label="Menu">{menu ? <X /> : <Menu />}</button>
@@ -85,12 +79,12 @@ function ProductCard({ openApp }) {
       <div className="account-preview">
         <div className="preview-head">
           <span className="anon-avatar"><Lock /></span>
-          <div><small>SHIELDED ACCOUNT</small><b>Solana</b></div>
+          <div><small>SHIELDED ACCOUNT</small><b>Robinhood Chain</b></div>
           <span className="preview-privacy" aria-label="Balance concealed"><EyeOff /></span>
         </div>
         <div className="preview-balance">
           <small>SHIELDED BALANCE</small>
-          <strong>•••• SOL</strong>
+          <strong>•••• ETH</strong>
           <span><i /> no public account balance</span>
         </div>
         <div className="preview-actions">
@@ -99,7 +93,7 @@ function ProductCard({ openApp }) {
           <button onClick={openApp}><span><ArrowUpRight /></span>Exit</button>
         </div>
         <div className="preview-rule" />
-        <div className="preview-row"><span className="asset-icon solana-chain"><img src={`${BASE}solana-mark.svg`} alt="" /></span><div><b>SOL on Solana</b><small>NATIVE GAS ASSET · MAINNET-BETA</small></div></div>
+        <div className="preview-row"><span className="asset-icon solana-chain"><img src={`${BASE}robinhood-mark.svg`} alt="" /></span><div><b>ETH on Robinhood Chain</b><small>ETH GAS · ROBINHOOD CHAIN</small></div></div>
         <div className="preview-row"><span className="asset-icon proof"><ShieldCheck /></span><div><b>Private transfers</b><small>ZERO-KNOWLEDGE AUTHORIZATION</small></div></div>
       </div>
       <div className="privacy-seal" aria-label="Spending keys stay on your device"><KeyRound /><b>Keys stay<br />local</b></div>
@@ -114,8 +108,8 @@ function Hero({ openApp }) {
       <img className="hero-art" src={`${BASE}vornuq-logo.png`} alt="" />
       <div className="hero-copy">
         <span className="hand-label">✦ VORNUQ · privacy belongs to you</span>
-        <h1>Your SOL.<br /><em>Your private world.</em></h1>
-        <p>A non-custodial shielded account protocol for Solana. Shield, transfer and exit SOL without publishing your private note graph.</p>
+        <h1>Your assets.<br /><em>Your private world.</em></h1>
+        <p>A non-custodial shielded account protocol for Robinhood Chain. Shield, transfer and exit ETH without publishing your private note graph.</p>
         <div className="hero-ctas">
           <button className="primary-btn green" onClick={openApp}>Launch app <ArrowRight /></button>
           <a href={`${BASE}docs.html#architecture`} className="secondary-link"><span><Sparkles /></span>Explore docs &amp; code</a>
@@ -124,14 +118,14 @@ function Hero({ openApp }) {
       <ProductCard openApp={openApp} />
       <div className="trust-strip">
         <span><Lock />Non-custodial</span><span><Network />Permissionless</span>
-        <span><Code2 />Inspectable core</span><span><Zap />Built for Solana</span>
+        <span><Code2 />Inspectable core</span><span><Zap />Robinhood Chain</span>
       </div>
     </section>
   )
 }
 
 const pillars = [
-  { icon: Fingerprint, n: '01', title: 'Value-bound notes', text: 'Every public SOL deposit is cryptographically bound to one private commitment.', meta: ['BINDS', 'ASSET · VALUE · OWNER'] },
+  { icon: Fingerprint, n: '01', title: 'Value-bound notes', text: 'Every public ETH deposit is cryptographically bound to one private commitment.', meta: ['BINDS', 'ASSET · VALUE · OWNER'] },
   { icon: Send, n: '02', title: 'Private transfers', text: 'Move value between private notes using a zero-knowledge proof instead of publishing the ownership graph.', meta: ['HIDES', 'AMOUNTS · OWNERSHIP LINKS'] },
   { icon: ShieldCheck, n: '03', title: 'Verified settlement', text: 'The chain verifies membership, authorization, nullifiers and value conservation before state changes.', meta: ['CHECKS', 'ROOTS · NULLIFIERS · VALUE'] },
 ]
@@ -140,7 +134,7 @@ function ProductSection() {
     <section className="product-section" id="product">
       <div className="section-intro">
         <div><span className="eyebrow">THE PRODUCT</span><h2>Financial privacy,<br />without disappearing.</h2></div>
-        <p>VORNUQ keeps the note graph private while Solana verifies that every state transition follows the protocol rules.</p>
+        <p>VORNUQ keeps the note graph private with a planned Robinhood Chain integration that verifies that every state transition follows the protocol rules.</p>
       </div>
       <div className="pillar-grid">
         {pillars.map(({ icon: Icon, n, title, text, meta }) => (
@@ -157,10 +151,10 @@ function ProductSection() {
 
 function FlowSection() {
   const steps = [
-    ['Connect', 'Use an Solana wallet on Solana for public settlement.'],
-    ['Shield', 'Bind public SOL to a private note commitment.'],
+    ['Connect', 'Robinhood Chain wallet integration is planned for public settlement.'],
+    ['Shield', 'Bind public ETH to a private note commitment.'],
     ['Transfer', 'Move value between private notes with a zero-knowledge proof.'],
-    ['Exit', 'Prove a valid spend and return SOL to a public recipient.'],
+    ['Exit', 'Prove a valid spend and return ETH to a public recipient.'],
   ]
   return (
     <section className="flow-section" id="privacy">
@@ -194,7 +188,7 @@ function PrivacyMap() {
 function SecuritySection() {
   const items = [
     ['Keys stay local', 'One-time spending secrets are generated on the user device and never sent to the pool contract.'],
-    ['Value bound at entry', 'The contract derives each deposit commitment from the exact SOL value supplied in the transaction.'],
+    ['Value bound at entry', 'The contract derives each deposit commitment from the exact ETH value supplied in the transaction.'],
     ['Proof before state', 'Private transfers must prove membership, ownership, amount ranges and value conservation before execution.'],
     ['Limits stay explicit', 'Public entry, public exit, timing and network metadata remain part of the documented threat model.'],
   ]
@@ -209,8 +203,8 @@ function SecuritySection() {
 
 function TokenSection() {
   return <section className="token-section" id="token">
-    <div className="token-copy"><span className="eyebrow">VORNUQ / NEW CHAPTER</span><h2>Privacy first.<br /><em>Built in the open.</em></h2><p>VORNUQ is developing a non-custodial shielded account experience for Solana. Follow the source and release notes as the protocol takes shape.</p></div>
-    <div className="token-console"><div className="token-ca"><span>SOLANA TOKEN / CA</span><strong className="is-address">{TOKEN.mintAddress}</strong><small>Verify the full mint address before trading.</small></div><div className="token-links"><a href={TOKEN.buyUrl} target="_blank" rel="noreferrer"><span>PUMP.FUN</span><b>View VORNUQ token</b><ArrowUpRight /></a><a href={`https://solscan.io/token/${TOKEN.mintAddress}`} target="_blank" rel="noreferrer"><span>SOLSCAN</span><b>Verify mint address</b><ArrowUpRight /></a></div><p><ShieldCheck />Protocol development is in progress. Mainnet value-moving operations remain gated.</p></div>
+    <div className="token-copy"><span className="eyebrow">VORNUQ / NEW CHAPTER</span><h2>Privacy first.<br /><em>Built in the open.</em></h2><p>VORNUQ is developing a non-custodial shielded account experience for Robinhood Chain. Follow the source and release notes as the protocol takes shape.</p></div>
+    <div className="token-console"><div className="token-ca"><span>ROBINHOOD CHAIN / CA</span><strong>TBA</strong><small>The Robinhood Chain contract address has not been published.</small></div><div className="token-links"><a href="https://docs.robinhood.com/chain/" target="_blank" rel="noreferrer"><span>ROBINHOOD CHAIN</span><b>Explore the network</b><ArrowUpRight /></a><a href={CHAIN.blockExplorerUrls[0]} target="_blank" rel="noreferrer"><span>EXPLORER</span><b>View Robinhood Chain</b><ArrowUpRight /></a></div><p><ShieldCheck />Robinhood Chain integration is in development. Wallet connection and transactions are unavailable.</p></div>
   </section>
 }
 function DeveloperSection() {
@@ -221,7 +215,7 @@ function DeveloperSection() {
         <span className="eyebrow green-text">BUILDING IN PUBLIC</span>
         <h2>Privacy needs<br /><em>more builders.</em></h2>
         <p>Building in the open across zero-knowledge circuits, wallets and protocol security.</p>
-        <div className="dev-stack"><span>Circom</span><span>Rust / sBPF</span><span>Groth16</span><span>JavaScript SDK</span></div>
+        <div className="dev-stack"><span>Circom</span><span>Solidity / EVM</span><span>Groth16</span><span>JavaScript SDK</span></div>
         <div className="dev-actions"><a className="primary-btn green" href={`${BASE}docs.html`}><Code2 />Read the docs</a><a className="primary-btn outline" href="https://github.com/GHOSTXrun/fasfafasf" target="_blank" rel="noreferrer">View VORNUQ on GitHub <ArrowUpRight /></a></div>
       </div>
       <div className="dev-note">hard problem?<br /><b>good.</b></div>
@@ -243,7 +237,7 @@ function Footer() {
   return (
     <footer>
       <div className="footer-main"><Logo /><p>Your money is none of<br />the internet’s business.</p><div><a href="#product">Product</a><a href="#security">Security</a><a href="#roadmap">Progress</a><a href={`${BASE}?info=privacy`}>Privacy</a><a href={`${BASE}?info=terms`}>Terms</a><a href="https://github.com/GHOSTXrun/fasfafasf" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
-      <div className="footer-bottom"><span>© 2026 VORNUQ</span><span>Non-custodial privacy infrastructure for Solana.</span><a href={CHAIN.blockExplorerUrls[0]} target="_blank" rel="noreferrer">Mainnet explorer <ArrowUpRight /></a></div>
+      <div className="footer-bottom"><span>© 2026 VORNUQ</span><span>Non-custodial privacy infrastructure for Robinhood Chain.</span><a href={CHAIN.blockExplorerUrls[0]} target="_blank" rel="noreferrer">Mainnet explorer <ArrowUpRight /></a></div>
     </footer>
   )
 }
