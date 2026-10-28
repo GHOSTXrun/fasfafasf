@@ -64,3 +64,24 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  verify-live:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Check deployed homepage and wallet entry
+        run: node scripts/check-live-site.mjs
+        env:
+          LIVE_SITE_URL: https://vornuq.fun/?build=${{ github.sha }}
+      - name: Save browser screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-site-check
+          path: live-site-check.png
