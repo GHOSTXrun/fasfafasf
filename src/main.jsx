@@ -48,6 +48,17 @@ function Star({ className = '' }) {
   return <svg className={'star ' + className} viewBox="0 0 100 100"><path d="M50 4C53 32 66 46 96 50C66 54 53 68 50 96C47 68 34 54 4 50C34 46 47 32 50 4Z" /></svg>
 }
 
+function SolArtwork({ variant = 'orbit' }) {
+  return <div className={`sol-art sol-art-${variant}`} aria-hidden="true">
+    <span className="sol-orbit sol-orbit-one" /><span className="sol-orbit sol-orbit-two" />
+    <span className="sol-coin sol-coin-main"><img src={`${BASE}solana-mark.svg`} alt="" /></span>
+    <span className="sol-coin sol-coin-small"><img src={`${BASE}solana-mark.svg`} alt="" /></span>
+    <span className="sol-art-stamp"><ShieldCheck /></span>
+    <Star className="sol-art-star" /><span className="sol-art-dot" />
+    <span className="sol-art-label">SOL / PRIVATE BY DESIGN</span>
+  </div>
+}
+
 
 function XBrand() {
   return <svg className="x-brand" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.967 6.817H1.68l7.724-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
@@ -84,6 +95,7 @@ function ProductCard({ openApp }) {
 
   return (
     <div className="hero-product">
+      <SolArtwork variant="hero" />
       <div className="note-sticker">your shielded account</div>
       <div className="account-preview">
         <div className="preview-head">
@@ -167,7 +179,7 @@ function FlowSection() {
   ]
   return (
     <section className="flow-section" id="privacy">
-      <div className="flow-title"><span className="eyebrow green-text">HOW IT WORKS</span><h2>Public in.<br />Private inside.<br /><em>Verified out.</em></h2></div>
+      <div className="flow-title"><span className="eyebrow green-text">HOW IT WORKS</span><h2>Public in.<br />Private inside.<br /><em>Verified out.</em></h2><SolArtwork /></div>
       <div className="flow-list">
         {steps.map(([title, text], i) => <article key={title}><span>0{i + 1}</span><div><h3>{title}</h3><p>{text}</p></div>{i < 3 && <ArrowRight />}</article>)}
       </div>
@@ -203,7 +215,7 @@ function SecuritySection() {
   ]
   return (
     <section className="security-section" id="security">
-      <div className="security-head"><span className="eyebrow green-text">SECURITY MODEL</span><h2>Know what protects you.</h2><p>Privacy claims are only useful when their assumptions are explicit.</p></div>
+      <div className="security-head"><span className="eyebrow green-text">SECURITY MODEL</span><h2>Know what protects you.</h2><p>Privacy claims are only useful when their assumptions are explicit.</p><SolArtwork variant="shield" /></div>
       <div className="security-list">{items.map(([t, p], i) => <article key={t}><span>0{i + 1}</span><div><h3>{t}</h3><p>{p}</p></div></article>)}</div>
     </section>
   )
@@ -236,7 +248,7 @@ function FAQ() {
   const [open, setOpen] = useState(0)
   return (
     <section className="faq-section" id="faq">
-      <div className="faq-head"><span className="eyebrow">QUESTIONS, ANSWERED</span><h2>Read this before<br />you enter the shield.</h2></div>
+      <div className="faq-head"><span className="eyebrow">QUESTIONS, ANSWERED</span><h2>Read this before<br />you enter the shield.</h2><SolArtwork variant="notes" /></div>
       <div className="faq-list">{faqs.map(([q, a], i) => <article className={open === i ? 'open' : ''} key={q}><button onClick={() => setOpen(open === i ? -1 : i)}><span>{q}</span><i>{open === i ? '−' : '+'}</i></button><div><p>{a}</p></div></article>)}</div>
     </section>
   )
