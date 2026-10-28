@@ -105,7 +105,7 @@ function Hero({ openApp }) {
   return (
     <section className="hero" id="top">
       <Header openApp={openApp} />
-      <img className="hero-art" src={`${BASE}eth-mark.svg`} alt="" />
+      <img className="hero-art" src={`${BASE}project-logo.png`} alt="" />
       <div className="hero-copy">
         <span className="hand-label">✦ VORNUQ · privacy belongs to you</span>
         <h1>Your assets.<br /><em>Your private world.</em></h1>
@@ -210,7 +210,7 @@ function TokenSection() {
 function DeveloperSection() {
   return (
     <section className="developer-section" id="developers">
-      <img src={`${BASE}eth-mark.svg`} alt="" />
+      <img src={`${BASE}project-logo.png`} alt="" />
       <div className="dev-content">
         <span className="eyebrow green-text">BUILDING IN PUBLIC</span>
         <h2>Privacy needs<br /><em>more builders.</em></h2>
