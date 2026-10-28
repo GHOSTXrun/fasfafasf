@@ -74,6 +74,7 @@ function Header({ openApp }) {
   return (
     <header className="site-header">
       <Logo />
+      <div className="header-ca" aria-label="Contract address to be announced"><span>CA</span><b>TBA</b><i /></div>
       <nav className={menu ? 'site-nav open' : 'site-nav'}>
         <a href="#product" onClick={() => setMenu(false)}>Product</a>
         <a href="#privacy" onClick={() => setMenu(false)}>Privacy</a>

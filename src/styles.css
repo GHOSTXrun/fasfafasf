@@ -193,6 +193,10 @@ footer{background:var(--black);color:white;padding:65px var(--gutter) 28px}.foot
 @media(max-width:540px){.sol-art-hero .sol-coin-main{right:1%;top:-9px;width:52px;height:52px}.sol-art-hero .sol-coin-small{display:none}.sol-art-hero .sol-orbit{left:3%;width:94%}}
 
 /* Release information and wallet selection */
+.header-ca{position:absolute;left:var(--gutter);top:calc(100% + 16px);display:flex;align-items:center;gap:12px;padding:8px 13px;border:1px solid #343a30;border-radius:8px;background:#11150f;color:#919b86;font:10px 'DM Mono',monospace;letter-spacing:.08em;white-space:nowrap}
+.header-ca span{padding-right:12px;border-right:1px solid #343a30}.header-ca b{color:var(--green);font-weight:500}.header-ca i{width:5px;height:5px;background:var(--green);border-radius:50%;opacity:.65}
+@media(max-width:820px){.header-ca{left:21px;top:calc(100% + 12px);padding:6px 10px;font-size:9px}}
+@media(max-width:540px){.header-ca{left:19px}}
 .roadmap-section{padding:110px var(--gutter);background:var(--cream)}
 .roadmap-section>.section-intro{max-width:var(--max);margin-left:auto;margin-right:auto}
 .roadmap-grid{max-width:var(--max);margin:45px auto 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
