@@ -193,6 +193,7 @@ footer{background:var(--black);color:white;padding:65px var(--gutter) 28px}.foot
 @media(max-width:540px){.sol-art-hero .sol-coin-main{right:1%;top:-9px;width:52px;height:52px}.sol-art-hero .sol-coin-small{display:none}.sol-art-hero .sol-orbit{left:3%;width:94%}}
 
 /* Release information and wallet selection */
+.app-loading{position:fixed;inset:0;z-index:220;background:var(--cream);padding:clamp(30px,8vw,100px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:20px;overflow:auto}.app-loading h1{font-size:clamp(28px,4vw,48px);letter-spacing:-.04em;max-width:800px;margin:0}.app-loading p{max-width:650px;font-size:14px;line-height:1.7;color:#5b6553}.app-loading>div{display:flex;gap:12px}.app-loading button{background:var(--green);border:2px solid var(--ink);border-radius:99px;padding:12px 22px;font-size:12px;font-weight:700}.app-loading details{max-width:100%;font-size:12px}.app-loading pre{white-space:pre-wrap;overflow-wrap:anywhere;max-width:700px}
 .header-ca{position:absolute;left:var(--gutter);top:calc(100% + 16px);display:flex;align-items:center;gap:12px;padding:8px 13px;border:1px solid #343a30;border-radius:8px;background:#11150f;color:#919b86;font:10px 'DM Mono',monospace;letter-spacing:.08em;white-space:nowrap}
 .header-ca span{padding-right:12px;border-right:1px solid #343a30}.header-ca b{color:var(--green);font-weight:500}.header-ca i{width:5px;height:5px;background:var(--green);border-radius:50%;opacity:.65}
 @media(max-width:820px){.header-ca{left:21px;top:calc(100% + 12px);padding:6px 10px;font-size:9px}}
