@@ -1,6 +1,6 @@
-# Murven Solana program boundary
+# VORNUQ Solana program boundary
 
-Murven targets Solana mainnet-beta as a native SOL shielded-account protocol.
+VORNUQ targets Solana mainnet-beta as a native SOL shielded-account protocol.
 
 ## Accounts
 

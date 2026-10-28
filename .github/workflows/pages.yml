@@ -1,4 +1,4 @@
-name: Deploy Murven to GitHub Pages
+name: Deploy VORNUQ to GitHub Pages
 
 on:
   push:

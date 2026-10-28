@@ -30,10 +30,10 @@ export async function createNote({ value, assetId = 0n, ownerSecret, ownerPublic
 }
 export function serializeNote(note) {
   const body = Object.fromEntries(Object.entries(note).map(([key, value]) => [key, typeof value === 'bigint' ? value.toString() : value]))
-  return `murven1:${toBase64Url(JSON.stringify(body))}`
+  return `vornuq1:${toBase64Url(JSON.stringify(body))}`
 }
 export function parseNote(encoded) {
-  if (!encoded.startsWith('murven1:')) throw new Error('Unsupported Murven note')
+  if (!encoded.startsWith('vornuq1:')) throw new Error('Unsupported VORNUQ note')
   const body = JSON.parse(fromBase64Url(encoded.slice(8)))
   for (const key of ['assetId', 'value', 'ownerPublicKey', 'rho', 'randomness', 'commitment']) body[key] = BigInt(body[key])
   return body
